@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Get Day Name</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Day Checker</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #2c3e50;
+    }
+  </style>
 </head>
 <body>
-
-  <h2>Get Day Name from Number (1 - 7)</h2>
-
-  <input type="number" id="dayInput" placeholder="Enter number 1-7" />
-  <button onclick="showDay()">Get Day</button>
-
-  <p id="result"></p>
+  <h1>What Day is Today?</h1>
+  <button onclick="showDay()">Show Day</button>
+  <div id="result"></div>
 
   <script>
-    function getDayName(dayNumber) {
-      switch (dayNumber) {
-        case 1:
-          return "Sunday";
-        case 2:
-          return "Monday";
-        case 3:
-          return "Tuesday";
-        case 4:
-          return "Wednesday";
-        case 5:
-          return "Thursday";
-        case 6:
-          return "Friday";
-        case 7:
-          return "Saturday";
-        default:
-          return "Invalid day";
-      }
-    }
-
     function showDay() {
-      const input = document.getElementById("dayInput").value;
-      const dayNumber = parseInt(input);
-      const result = getDayName(dayNumber);
-      document.getElementById("result").innerText = "Result: " + result;
+      const dayNumber = new Date().getDay();
+      let dayName = '';
+
+      switch (dayNumber) {
+        case 0: dayName = "Sunday"; break;
+        case 1: dayName = "Monday"; break;
+        case 2: dayName = "Tuesday"; break;
+        case 3: dayName = "Wednesday"; break;
+        case 4: dayName = "Thursday"; break;
+        case 5: dayName = "Friday"; break;
+        case 6: dayName = "Saturday"; break;
+        default: dayName = "Unknown";
+      }
+
+      document.getElementById("result").textContent = "Today is: " + dayName;
     }
   </script>
-
 </body>
 </html>
