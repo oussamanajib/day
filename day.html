@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Day Name</title>
+</head>
+<body>
+
+  <h2>Get Day Name from Number (1 - 7)</h2>
+
+  <input type="number" id="dayInput" placeholder="Enter number 1-7" />
+  <button onclick="showDay()">Get Day</button>
+
+  <p id="result"></p>
+
+  <script>
+    function getDayName(dayNumber) {
+      switch (dayNumber) {
+        case 1:
+          return "Sunday";
+        case 2:
+          return "Monday";
+        case 3:
+          return "Tuesday";
+        case 4:
+          return "Wednesday";
+        case 5:
+          return "Thursday";
+        case 6:
+          return "Friday";
+        case 7:
+          return "Saturday";
+        default:
+          return "Invalid day";
+      }
+    }
+
+    function showDay() {
+      const input = document.getElementById("dayInput").value;
+      const dayNumber = parseInt(input);
+      const result = getDayName(dayNumber);
+      document.getElementById("result").innerText = "Result: " + result;
+    }
+  </script>
+
+</body>
+</html>
